@@ -1,8 +1,74 @@
 .DisplayReposContainer {
-    margin-top: 3%;
+
+}
+
+.reposContainer {
+    animation: opacity-animation 1s ease-in-out;
+}
+
+.repoList {
+    justify-content: center;
 }
 
 
 .btn-repo {
-    width: 50%;
+    background-color: transparent;
+    border: 0;
+    width: 100%;
+    /* min-width: 33%; */
+    transition: padding 500ms, box-shadow 500ms, background-color 1s;
 }
+
+.btn-repo:hover {
+    /* box-shadow: 0px 1px 23px 2px rgba(209, 230, 108, 1); */
+    box-shadow: 0px 1px 23px 2px white;
+    padding: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.btn-repo:focus {
+    box-shadow: 0px 1px 23px 2px rgba(209, 230, 108, 1);
+    /* box-shadow: 0px 1px 23px 2px white; */
+    padding: 0;
+}
+
+.card {
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    text-align: start;
+}
+
+.card-header {
+    border-color: white;
+}
+
+ /* width */
+ ::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: rgba(191, 191, 191, 0.1);
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    /* background: #888; */
+    background: rgba(209, 230, 108, 1);
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  } 
+
+
+  @keyframes opacity-animation {
+    from {
+        opacity: 0%;
+    } to {
+        opacity: 100%;
+    }
+  }

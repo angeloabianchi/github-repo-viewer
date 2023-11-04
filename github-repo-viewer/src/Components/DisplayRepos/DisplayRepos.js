@@ -1,46 +1,76 @@
 import React, { useEffect, useState } from 'react';
 import './DisplayRepos.css';
 import { fetchData } from '../FetchData/FetchData';
+import Loading from '../Loading/Loading';
 
-const DisplayRepos = ({ searchInput, setSearchInput }) => {
+const DisplayRepos = ({ searchInput, setRepoSelected }) => {
 
     const [data, setData] = useState();
     const [page, setPage] = useState(1);
+    const [isLoading, setIsLoading] = useState(false);
 
 
     useEffect(() => {
         setData('');
 
         if(searchInput) {
+            setIsLoading(true);
             setTimeout( async () => {
                 const getData = await (fetchData('repos', searchInput, page));
                 setData(getData);
+                setIsLoading(false);
             }, 1000);
         }
-    }, [searchInput])
+    }, [searchInput]);
 
-    console.log(data);
+    const selectRepo = (repo) => {
+        setRepoSelected(repo);
+    }
+
+    /* console.log(data); */
 
   return (
     <div className="DisplayReposContainer">
-        <div class='container'>
-            <div class="row">
-                {data && data.map((repo) => (
-                    <div class="col-md-auto">
-                        <div class="card border-success mb-3" style={{"min-width": "18rem;"}}>
-                            <div class="card-header bg-transparent border-success">Header</div>
-                            <div class="card-body text-success">
-                                <h5 class="card-title">{repo.name}</h5>
-                                <p class="card-text">{repo.description}</p>
+        {isLoading ? (
+            <Loading />
+        ) : (
+            <>
+            <div className='reposContainer'>
+                <h4 className="titlePage">{searchInput} Repos</h4>
+                <div class='container'>
+                    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 repoList">
+                        {data && data.map((repo) => (
+                            <div class='col'>
+                                <button onClick={() => selectRepo(repo)} class='btn btn-repo mb-2'>
+                                    <div class="card">
+                                        <div class="card-header">
+                                            {repo.name}
+                                        </div>
+                                        <div class="card-body">
+                                            <blockquote class="blockquote mb-0">
+                                                <p>{repo.description}</p>
+                                                <footer class="blockquote-footer">
+                                                    <a href={repo.html_url} target='_blank'>
+                                                        <cite title="Source Title">Link </cite>
+                                                    </a>
+                                                </footer>
+                                            </blockquote>
+                                        </div>
+                                    </div>
+                                </button>
                             </div>
-                            <div class="card-footer bg-transparent border-success">
-                                <a href={repo.html_url} class="btn btn-repo">Visit Repo</a>
-                            </div>
-                        </div>
+                            
+        
+        
+                        ))}
                     </div>
-                ))}
+                </div>
             </div>
-        </div>
+                
+            </>
+
+        )}
+
     </div>
   );
 }
