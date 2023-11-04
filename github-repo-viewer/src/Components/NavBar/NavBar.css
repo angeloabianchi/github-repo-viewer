@@ -1,0 +1,11 @@
+.NavBarContainer {
+    /* background-color: #545454; */
+    /* background-color: #663243; */
+    background-color: #3b2129;
+}
+
+.logoWrapper {
+    /* Control the size and position of the logo */
+    transform: scale(2); /* Adjust the scale factor to make the image larger */
+    transform-origin: left; /* Adjust the origin to keep it aligned with the left side */
+}
