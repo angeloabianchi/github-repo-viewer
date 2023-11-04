@@ -1,9 +1,14 @@
 import './DisplayOrgs.css';
 
-const DisplayOrgs = ({searchInput}) => {
+const DisplayOrgs = ({searchInput, error}) => {
   return (
     <div className="DisplayOrgsContainer">
-        <h4 className="titlePage">{searchInput} Organizations</h4>
+      {error ? (
+            <h4 className="titlePage">Organizations</h4>
+          ) : (
+            <h4 className="titlePage">{searchInput} Organizations</h4>
+          )}
+        
     </div>
   );
 }

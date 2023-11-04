@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './FindUser.css';
 
-const FindUser = ({ searchInput, setSearchInput }) => {
+const FindUser = ({ setSearchInput, setRepoSelected }) => {
 
     const [input, setInput] = useState();
 
@@ -11,6 +11,7 @@ const FindUser = ({ searchInput, setSearchInput }) => {
     
     const sendInput = (event) => {
         event.preventDefault();
+        setRepoSelected();
         setSearchInput(input);
     }
 

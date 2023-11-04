@@ -3,29 +3,49 @@ import './DisplayRepos.css';
 import { fetchData } from '../FetchData/FetchData';
 import Loading from '../Loading/Loading';
 
-const DisplayRepos = ({ searchInput, setRepoSelected }) => {
+const DisplayRepos = ({ searchInput, setRepoSelected, error, setError, setShowErrorModal }) => {
 
     const [data, setData] = useState();
     const [page, setPage] = useState(1);
     const [isLoading, setIsLoading] = useState(false);
+    
 
 
-    useEffect(() => {
-        setData('');
+    const handleShowErrorModal = () => {
+        setShowErrorModal(true);
+    };
 
-        if(searchInput) {
-            setIsLoading(true);
-            setTimeout( async () => {
-                const getData = await (fetchData('repos', searchInput, page));
-                setData(getData);
-                setIsLoading(false);
-            }, 1000);
-        }
-    }, [searchInput]);
 
     const selectRepo = (repo) => {
         setRepoSelected(repo);
     }
+
+
+    useEffect(() => {
+        setData('');
+        setError(null); 
+
+        if(searchInput) {
+            setIsLoading(true);
+            setTimeout( async () => {
+                try {
+                    const getData = await (fetchData('repos', searchInput, page));
+                    console.log(getData)
+                    if (getData.error) {
+                        setError(getData.message); // Set the error message
+                        handleShowErrorModal(); // Show the error modal
+                        
+                    } else {
+                        setData(getData);
+                    }
+                    setIsLoading(false);
+                } catch (err) {
+                    console.error(err);
+                }
+                
+            }, 1000);
+        }
+    }, [searchInput]);
 
     /* console.log(data); */
 
@@ -36,7 +56,11 @@ const DisplayRepos = ({ searchInput, setRepoSelected }) => {
         ) : (
             <>
             <div className='reposContainer'>
-                <h4 className="titlePage">{searchInput} Repos</h4>
+                {error ? (
+                    <h4 className="titlePage">Repos</h4>
+                ) : (
+                    <h4 className="titlePage">{searchInput} Repos</h4>
+                )}
                 <div class='container'>
                     <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 repoList">
                         {data && data.map((repo) => (
@@ -66,7 +90,6 @@ const DisplayRepos = ({ searchInput, setRepoSelected }) => {
                     </div>
                 </div>
             </div>
-                
             </>
 
         )}
