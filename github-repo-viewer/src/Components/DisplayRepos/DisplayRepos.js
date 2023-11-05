@@ -36,6 +36,7 @@ const DisplayRepos = ({ searchInput, setRepoSelected, error, setError, setShowEr
                         
                     } else {
                         setData(getData);
+                        
                     }
                     setIsLoading(false);
                 } catch (err) {

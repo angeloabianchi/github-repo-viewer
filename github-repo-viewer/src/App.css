@@ -52,6 +52,7 @@
   backdrop-filter: blur(8px);
   height: 46vh;
   overflow: auto;
+  opacity: 0%;
 }
 
 .double {
