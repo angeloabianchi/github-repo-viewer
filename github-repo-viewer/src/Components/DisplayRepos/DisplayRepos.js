@@ -3,7 +3,7 @@ import './DisplayRepos.css';
 import { fetchData } from '../FetchData/FetchData';
 import Loading from '../Loading/Loading';
 
-const DisplayRepos = ({ searchInput, setRepoSelected, error, setError, setShowErrorModal }) => {
+const DisplayRepos = ({ searchInput, setRepoSelected, error, setError, setShowErrorModal, setInitialState }) => {
 
     const [data, setData] = useState();
     const [page, setPage] = useState(1);
@@ -36,6 +36,7 @@ const DisplayRepos = ({ searchInput, setRepoSelected, error, setError, setShowEr
                         
                     } else {
                         setData(getData);
+                        setInitialState(false);
                         
                     }
                     setIsLoading(false);
@@ -62,9 +63,9 @@ const DisplayRepos = ({ searchInput, setRepoSelected, error, setError, setShowEr
                     <h4 className="titlePage">{searchInput} Repos</h4>
                 )}
                 <div class='container'>
-                    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 repoList">
+                    <div class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-1 repoList">
                         {data && data.map((repo) => (
-                            <div class='col'>
+                            <div class='col col-md-auto'>
                                 <button onClick={() => selectRepo(repo)} class='btn btn-repo mb-2'>
                                     <div class="card">
                                         <div class="card-header">

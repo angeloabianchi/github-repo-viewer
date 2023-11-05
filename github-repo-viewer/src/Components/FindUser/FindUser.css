@@ -1,19 +1,27 @@
 .FindUserContainer {
     /* background-color: #3b2129; */
     height: 100%;
+    text-align: center;
 }
 
 .form {
     height: 84%;
     display: flex;
     flex-direction: column;
-    align-items: baseline;
+    align-items: center;
     justify-content: space-evenly;
 }
 
 .titlePage {
     color: #d1e66c;
     text-align: start;
+    transform: font-size 500ms, margin-top 500ms, text-align 500ms;
+}
+
+.searchTitlePage {
+    text-align: center;
+    margin-top: 2%;
+    font-size: 2.5rem;
 }
 
 .form-control {
@@ -38,7 +46,8 @@
 }
 
 .btn-submit {
-    width: 30%;
+    width: 20%;
+    text-transform: uppercase;
 }
 
 .btn-submit:hover {

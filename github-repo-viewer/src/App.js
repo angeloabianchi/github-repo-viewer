@@ -15,15 +15,13 @@ const App = () => {
   const [repoSelected, setRepoSelected] = useState();
   const [error, setError] = useState(null); 
   const [showErrorModal, setShowErrorModal] = useState(false);
-
+  const [initialState, setInitialState] = useState(true);
 
   
 
-  useEffect(() => {
-      setTimeout( () => {
-          setAnimationStart(false);
-      }, 1500);
-}, [])
+  setTimeout( () => {
+    setAnimationStart(false);
+  }, 1500);
 
   
   return (
@@ -38,25 +36,22 @@ const App = () => {
           <>
             <div class="logo"><img src={logo} className='backgroundLogo' alt="GitHub Repo View" width="500" height="auto" /></div>
             <div class="row App-Content">
-              <div class='col-3 p-0'>
-                  <div class="col double">
-                    <FindUser setSearchInput={setSearchInput} setRepoSelected={setRepoSelected}/>
-                  </div>
-                  <div class="col double">
-                    <DisplayOrgs searchInput={searchInput} error={error} />
-                  </div>
-              </div>
-              <div class='col-5 Components'>
+              <div class={initialState ? 'col-3 Components displayInfo hide' : 'col-3 Components displayInfo show'}>
                 <DisplayInfo searchInput={searchInput} error={error} />
               </div>
-              <div class='col-3 Components'>
-                  
+              <div class='col-5 p-0 d-flex align-items-end'>
+                  <div class='col search show'>
+                    <FindUser setSearchInput={setSearchInput} setRepoSelected={setRepoSelected}/>
+                  </div>
               </div>
-              <div class='col-7 Components'>
-                <DisplayRepos searchInput={searchInput} setRepoSelected={setRepoSelected} error={error} setError={setError} setShowErrorModal={setShowErrorModal}/>
+              <div class={initialState ? 'col-3 Components displayRight hide' : 'col-3 Components displayRight show'}>
+                <DisplayOrgs searchInput={searchInput} error={error} />
+              </div>
+              <div class={initialState ? 'col-7 Components displayRepos hide' : 'col-7 Components displayRepos show'}>
+                <DisplayRepos searchInput={searchInput} setRepoSelected={setRepoSelected} error={error} setError={setError} setShowErrorModal={setShowErrorModal} setInitialState={setInitialState}/>
                 
               </div>
-              <div class='col-4 Components'>
+              <div class={initialState ? 'col-4 Components displayRight hide' : 'col-4 Components displayRight show'}>
                 <DisplayRepoInfo repoSelected={repoSelected} />
               </div>
               <ErrorModal error={error} showErrorModal={showErrorModal} setShowErrorModal={setShowErrorModal}/>
