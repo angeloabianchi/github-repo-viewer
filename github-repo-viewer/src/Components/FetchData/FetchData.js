@@ -30,7 +30,6 @@ const fetchData = async (group, input, page) => {
 
     return await fetch(url, options)
     .then(res => {
-        console.log(res.status)
         if (res.status === 404) {
             return { error: true, message: `Input "${input}" not found` };
         } else {
@@ -39,7 +38,6 @@ const fetchData = async (group, input, page) => {
     })
     .then(data => {
         if (data.error) {
-            console.log('entrou aqui')
             return(data);
         }
         return data;

@@ -30,7 +30,6 @@ const DisplayRepos = ({ searchInput, setRepoSelected, error, setError, setShowEr
             setTimeout( async () => {
                 try {
                     const getData = await (fetchData('repos', searchInput, page));
-                    console.log(getData)
                     if (getData.error) {
                         setError(getData.message); // Set the error message
                         handleShowErrorModal(); // Show the error modal
