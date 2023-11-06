@@ -53,7 +53,7 @@ const fetchData = async (group, input, page) => {
         method: 'GET',
         headers: {
             accept: 'application/json',
-            Authorization: `Bearer ${process.env.REACT_APP_GITHUB_TOKEN}`,
+            Authorization: `Token ${process.env.REACT_APP_GITHUB_TOKEN}`,
             'X-GitHub-Api-Version': '2022-11-28',
         }
     };
