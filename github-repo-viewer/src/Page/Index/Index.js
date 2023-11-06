@@ -39,7 +39,7 @@ const Index = () => {
                             <DisplayInfo searchInput={searchInput} error={error} />
                         </div>
 
-                        <div class='col-lg-5 col-md-12 d-flex align-items-end findUser'>
+                        <div class='col-lg-5 col-md-12 d-flex findUser'>
                             <div class='col search show'>
                                 <FindUser setSearchInput={setSearchInput} setRepoSelected={setRepoSelected} setPage={setPage}/>
                             </div>

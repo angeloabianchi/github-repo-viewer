@@ -88,6 +88,10 @@
     z-index: 1
 }
 
+.findUser {
+    align-items: end;
+}
+
 
 
 @keyframes logoBlinking {
@@ -141,6 +145,10 @@
 
     .displayInfo {
         margin-top: 5%;
+    }
+    
+    .findUser {
+        align-items: center;
     }
 }
 
