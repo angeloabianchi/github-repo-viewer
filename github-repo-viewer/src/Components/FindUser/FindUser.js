@@ -17,8 +17,8 @@ const FindUser = ({ setSearchInput, setRepoSelected, setPage }) => {
     }
 
   return (
-    <div className="FindUserContainer">
-        <h4 for="user" className="titlePage searchTitlePage">Search Users on Github</h4>
+    <div data-testid="FindUser" className="FindUserContainer">
+        <h4 className="titlePage searchTitlePage">Search Users on Github</h4>
         <div class='container h-100'>
             <form onSubmit={sendInput} className='form'>
                 <input type="text" onChange={handleInputChange} class="form-control" id="userInput" aria-describedby="user" placeholder="Type a github username" />

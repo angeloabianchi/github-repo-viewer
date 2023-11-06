@@ -12,7 +12,6 @@ const DisplayRepos = ({ searchInput, setRepoSelected, error, setError, setShowEr
     const [previousDisabled, setPreviousDisabled] = useState(false);
     
 
-
     const handleShowErrorModal = () => {
         setShowErrorModal(true);
     };
@@ -22,11 +21,13 @@ const DisplayRepos = ({ searchInput, setRepoSelected, error, setError, setShowEr
         setRepoSelected(repo);
     }
 
+
     const nextPage = (page) => {
         if (page < maxPage) {
             setPage(page + 1);
         }
     }
+
 
     const previousPage = (page) => {
         if (page > 1) {
@@ -35,8 +36,6 @@ const DisplayRepos = ({ searchInput, setRepoSelected, error, setError, setShowEr
     }
 
     
-
-
     useEffect(() => {
         setData('');
         setError(null); 
@@ -94,7 +93,7 @@ const DisplayRepos = ({ searchInput, setRepoSelected, error, setError, setShowEr
                                             <blockquote class="blockquote mb-0">
                                                 <p>{repo.description}</p>
                                                 <footer class="blockquote-footer">
-                                                    <a href={repo.html_url} target='_blank'>
+                                                    <a href={repo.html_url} target='_blank' rel="noreferrer">
                                                         <cite title="Source Title">Link </cite>
                                                     </a>
                                                 </footer>
@@ -103,9 +102,6 @@ const DisplayRepos = ({ searchInput, setRepoSelected, error, setError, setShowEr
                                     </div>
                                 </button>
                             </div>
-                            
-        
-        
                         ))}
                     </div>
                     <div className='d-flex align-items-center justify-content-center'>
@@ -115,10 +111,7 @@ const DisplayRepos = ({ searchInput, setRepoSelected, error, setError, setShowEr
                         <button onClick={() => nextPage(page)} disabled={nextDisabled} className="btn m-2">
                                     Next
                         </button>
-                        
                     </div>
-
-                    
                 </div>
             </div>
             </>

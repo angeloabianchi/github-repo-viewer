@@ -41,10 +41,10 @@ const DisplayOrgs = ({searchInput, error}) => {
                 {orgs && orgs.map((org) => (
                   <div class="card mb-3" style={{'max-width': '150px;'}}>
                     <div class="row g-0">
-                      <div class="col-md-4 col-sm-2">
-                        <img src={org.avatar_url} class="img-fluid rounded-start" alt={`${org.login} avatar image`} />
+                      <div class="col-md-4 col-sm-2 col-2 ">
+                        <img src={org.avatar_url} class="img-fluid rounded-start" alt={`${org.login} avatar`} />
                       </div>
-                      <div class="col-md-8 col-sm-4">
+                      <div class="col-md-8 col-sm-10 col-10">
                         <div class="card-body">
                           <h5 class="card-title">{org.login}</h5>
                           <p class="card-text">{org.description}</p>

@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import './Index.css'
 import FindUser from '../../Components/FindUser/FindUser';
 import DisplayRepos from '../../Components/DisplayRepos/DisplayRepos';
@@ -26,13 +26,13 @@ const Index = () => {
     
 
     return(
-        <div className="IndexContainer">
+        <div class="IndexContainer bg-black">
             {animationStart ? (
           <div class="logo"><img src={logo} className='backgroundLogo logoAnimation' alt="GitHub Repo View" /></div>
             ) : (
             <>
 
-                <div className="index">
+                <div className="index bg-black">
                     <div class="logo"><img src={logo} className='backgroundLogo' alt="GitHub Repo View" /></div>
                     <div class="row layout">
                         <div class={initialState ? 'col-lg-3 col-md-5 Components displayInfo hide' : 'col-lg-3 col-md-5 Components displayInfo show'}>

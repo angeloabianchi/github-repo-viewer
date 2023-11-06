@@ -10,7 +10,7 @@ const App = () => {
     <div className="App bg-black">
       <header className="App-header">
       </header>
-      <div className='App-Content bg-black'>
+      <div class='App-Content '>
           <Index />
       </div>
       

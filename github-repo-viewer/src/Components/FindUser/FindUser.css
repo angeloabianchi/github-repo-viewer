@@ -46,7 +46,7 @@
 }
 
 .btn-submit {
-    width: 20%;
+    min-width: 25%;
     text-transform: uppercase;
 }
 
@@ -54,3 +54,30 @@
     background-color: rgba(123, 148, 0, 1);
     border: 1px solid #373d1a;
 }
+
+@media only screen and (max-width: 576px) {
+    .btn-submit {
+        width: 100%;
+    }
+
+    .searchTitlePage {
+        font-size: 2rem;
+    }
+}
+
+
+@media only screen and (min-width:577px) and (max-width: 768px) {
+    .btn-submit {
+        width: 50%;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .btn-submit {
+        margin-top: 3%;
+    }
+    .searchTitlePage {
+        margin-bottom: 3%;
+    }
+}
+

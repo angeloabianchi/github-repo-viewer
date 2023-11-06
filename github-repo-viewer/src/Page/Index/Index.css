@@ -30,6 +30,7 @@
     animation: logoBlinking 800ms ease-in-out infinite;
     width: 800px;
     height: auto;
+    background-color: black;
 }
 
 .layout {
@@ -58,6 +59,7 @@
 
 .hide {
     opacity: 0%;
+    z-index: -1;
 }
 
 .displayRight {
@@ -83,6 +85,7 @@
     transition: opacity 300ms, left 1s, bottom 1s, top 1s;
     left: 0;
     top: 0;
+    z-index: 1
 }
 
 
@@ -135,16 +138,21 @@
     .searchTitlePage {
         font-size: 2.0rem;
     }
+
+    .displayInfo {
+        margin-top: 5%;
+    }
 }
 
 
-@media only screen and (max-width: 768px) {
+@media only screen and (min-width: 577px) and (max-width: 768px) {
     #findUser {
         order: 2;
     }
     
     .displayInfo {
         order: 1;
+        margin-top: 10%;
     }
 
     .displayRight {
@@ -189,5 +197,12 @@
     .findUser {
         margin-bottom: 10%;
     }
+}
+
+@media only screen and (min-width: 993px) {
+    .backgroundLogo {
+        width: 450px;
+    }
+
 }
 

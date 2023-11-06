@@ -87,4 +87,4 @@ const fetchData = async (group, input, page) => {
 }
 
 
-export {fetchData};
+export {fetchData, generateURL};
