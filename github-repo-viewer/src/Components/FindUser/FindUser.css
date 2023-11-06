@@ -50,7 +50,7 @@
     text-transform: uppercase;
 }
 
-.btn-submit:hover {
+.btn:hover {
     background-color: rgba(123, 148, 0, 1);
     border: 1px solid #373d1a;
 }

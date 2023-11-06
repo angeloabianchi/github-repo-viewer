@@ -13,6 +13,7 @@ const App = () => {
   const [searchInput, setSearchInput] = useState('');
   const [animationStart, setAnimationStart] = useState(true);
   const [repoSelected, setRepoSelected] = useState();
+  const [page, setPage] = useState(1);
   const [error, setError] = useState(null); 
   const [showErrorModal, setShowErrorModal] = useState(false);
   const [initialState, setInitialState] = useState(true);
@@ -41,14 +42,14 @@ const App = () => {
               </div>
               <div class='col-5 p-0 d-flex align-items-end'>
                   <div class='col search show'>
-                    <FindUser setSearchInput={setSearchInput} setRepoSelected={setRepoSelected}/>
+                    <FindUser setSearchInput={setSearchInput} setRepoSelected={setRepoSelected} setPage={setPage}/>
                   </div>
               </div>
               <div class={initialState ? 'col-3 Components displayRight hide' : 'col-3 Components displayRight show'}>
                 <DisplayOrgs searchInput={searchInput} error={error} />
               </div>
               <div class={initialState ? 'col-7 Components displayRepos hide' : 'col-7 Components displayRepos show'}>
-                <DisplayRepos searchInput={searchInput} setRepoSelected={setRepoSelected} error={error} setError={setError} setShowErrorModal={setShowErrorModal} setInitialState={setInitialState}/>
+                <DisplayRepos searchInput={searchInput} setRepoSelected={setRepoSelected} error={error} setError={setError} setShowErrorModal={setShowErrorModal} setInitialState={setInitialState} page={page} setPage={setPage}/>
                 
               </div>
               <div class={initialState ? 'col-4 Components displayRight hide' : 'col-4 Components displayRight show'}>

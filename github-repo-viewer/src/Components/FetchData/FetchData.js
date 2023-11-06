@@ -14,6 +14,34 @@ const generateURL = (group, input, page) => {
     }
 };
 
+
+const extractLastPageURL = (linkHeader) => {
+    if (!linkHeader) {
+        return null;
+    }
+    const links = linkHeader.split(',');
+    for (const link of links) {
+        const [url, rel] = link.split(';');
+        if (rel.includes('rel="last"')) {
+            return url.trim().slice(1, -1); // Remove angle brackets
+        }
+    }
+    return null;
+}
+
+const extractLastPageNumber = (lastPageURL) => {
+    if (!lastPageURL) {
+        return null;
+    }
+    const match = lastPageURL.match(/page=(\d+)/);
+    if (match && match[1]) {
+        return parseInt(match[1]);
+    }
+    return null;
+}
+
+
+
 const fetchData = async (group, input, page) => {
     const fetch = require('node-fetch');
 
@@ -29,11 +57,23 @@ const fetchData = async (group, input, page) => {
     };
 
     return await fetch(url, options)
-    .then(res => {
+    .then(async res => {
         if (res.status === 404) {
             return { error: true, message: `Input "${input}" not found` };
         } else {
-            return res.json();
+            const linkHeader = res.headers.get('link');
+            const lastPageURL = extractLastPageURL(linkHeader);
+            if (linkHeader) {
+                const lastPageNumber = extractLastPageNumber(lastPageURL);
+                /* console.log('linkHeader:', linkHeader); */
+                const result = await res.json();
+                return {result, lastPageNumber};
+            } else {
+                const lastPageNumber = 1;
+                const result = await res.json();
+                return {result, lastPageNumber};
+            }
+            
         }
     })
     .then(data => {

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './FindUser.css';
 
-const FindUser = ({ setSearchInput, setRepoSelected }) => {
+const FindUser = ({ setSearchInput, setRepoSelected, setPage }) => {
 
     const [input, setInput] = useState();
 
@@ -13,6 +13,7 @@ const FindUser = ({ setSearchInput, setRepoSelected }) => {
         event.preventDefault();
         setRepoSelected();
         setSearchInput(input);
+        setPage(1);
     }
 
   return (

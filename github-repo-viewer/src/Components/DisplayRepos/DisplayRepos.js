@@ -3,11 +3,13 @@ import './DisplayRepos.css';
 import { fetchData } from '../FetchData/FetchData';
 import Loading from '../Loading/Loading';
 
-const DisplayRepos = ({ searchInput, setRepoSelected, error, setError, setShowErrorModal, setInitialState }) => {
+const DisplayRepos = ({ searchInput, setRepoSelected, error, setError, setShowErrorModal, setInitialState, page, setPage }) => {
 
     const [data, setData] = useState();
-    const [page, setPage] = useState(1);
+    const [maxPage, setMaxPage] = useState();
     const [isLoading, setIsLoading] = useState(false);
+    const [nextDisabled, setNextDisabled] = useState(false);
+    const [previousDisabled, setPreviousDisabled] = useState(false);
     
 
 
@@ -19,6 +21,20 @@ const DisplayRepos = ({ searchInput, setRepoSelected, error, setError, setShowEr
     const selectRepo = (repo) => {
         setRepoSelected(repo);
     }
+
+    const nextPage = (page) => {
+        if (page < maxPage) {
+            setPage(page + 1);
+        }
+    }
+
+    const previousPage = (page) => {
+        if (page > 1) {
+            setPage(page - 1);
+        }
+    }
+
+    
 
 
     useEffect(() => {
@@ -35,9 +51,9 @@ const DisplayRepos = ({ searchInput, setRepoSelected, error, setError, setShowEr
                         handleShowErrorModal(); // Show the error modal
                         
                     } else {
-                        setData(getData);
+                        setData(getData.result);
                         setInitialState(false);
-                        
+                        setMaxPage(getData.lastPageNumber);
                     }
                     setIsLoading(false);
                 } catch (err) {
@@ -46,9 +62,15 @@ const DisplayRepos = ({ searchInput, setRepoSelected, error, setError, setShowEr
                 
             }, 1000);
         }
-    }, [searchInput]);
 
-    /* console.log(data); */
+        setNextDisabled(page === maxPage || maxPage === null);
+        setPreviousDisabled(page === 1);
+
+    }, [searchInput, page, maxPage]);
+
+
+    console.log(`page - ${page}`)
+    console.log(`lastPageNumber - ${maxPage}`)
 
   return (
     <div className="DisplayReposContainer">
@@ -63,9 +85,9 @@ const DisplayRepos = ({ searchInput, setRepoSelected, error, setError, setShowEr
                     <h4 className="titlePage">{searchInput} Repos</h4>
                 )}
                 <div class='container'>
-                    <div class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-1 repoList">
+                    <div class="row row-cols-lg-2 row-cols-md-2 row-cols-sm-1 repoList">
                         {data && data.map((repo) => (
-                            <div class='col col-md-auto'>
+                            <div class='col'>
                                 <button onClick={() => selectRepo(repo)} class='btn btn-repo mb-2'>
                                     <div class="card">
                                         <div class="card-header">
@@ -89,6 +111,17 @@ const DisplayRepos = ({ searchInput, setRepoSelected, error, setError, setShowEr
         
                         ))}
                     </div>
+                    <div className='d-flex align-items-center justify-content-center'>
+                        <button onClick={() => previousPage(page)} disabled={previousDisabled} className="btn m-2">
+                                    Previous
+                        </button>
+                        <button onClick={() => nextPage(page)} disabled={nextDisabled} className="btn m-2">
+                                    Next
+                        </button>
+                        
+                    </div>
+
+                    
                 </div>
             </div>
             </>
