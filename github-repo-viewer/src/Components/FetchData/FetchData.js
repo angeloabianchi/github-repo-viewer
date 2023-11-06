@@ -8,7 +8,7 @@ const generateURL = (group, input, page) => {
         case 'repos':
             return `${baseUrl}/${input}/repos?page=${page}`;
         case 'orgs':
-            return `${baseUrl}/${input}/orgs?page=${page}`;
+            return `${baseUrl}/${input}/orgs`;
         default:
             throw new Error(`Invalid type: ${group}`);
     }
@@ -46,6 +46,8 @@ const fetchData = async (group, input, page) => {
     const fetch = require('node-fetch');
 
     const url = generateURL(group, input, page);
+
+    console.log(url)
 
     const options = {
         method: 'GET',

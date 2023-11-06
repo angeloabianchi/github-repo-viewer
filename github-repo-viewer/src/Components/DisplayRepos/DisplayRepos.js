@@ -69,9 +69,6 @@ const DisplayRepos = ({ searchInput, setRepoSelected, error, setError, setShowEr
     }, [searchInput, page, maxPage]);
 
 
-    console.log(`page - ${page}`)
-    console.log(`lastPageNumber - ${maxPage}`)
-
   return (
     <div className="DisplayReposContainer">
         {isLoading ? (

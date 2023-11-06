@@ -20,6 +20,8 @@ const DisplayInfo = ({searchInput, error}) => {
     }
 }, [searchInput]);
 
+console.log(data)
+
 
   return (
     <div className="DisplayInfoContainer">
