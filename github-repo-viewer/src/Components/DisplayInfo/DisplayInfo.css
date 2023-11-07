@@ -1,3 +1,26 @@
+.DisplayInfoContainer {
+    height: 100%;
+}
+
 .infoContainer {
     animation: opacity-animation 1s ease-in-out;  
+    height: 100%;
+}
+
+.idContainer {
+    /* color: wheat; */
+    color: white;
+
+}
+
+.bio {
+    text-align: justify;
+}
+
+.dates {
+    font-size: 0.9rem;
+}
+
+.created {
+    text-align: right;
 }

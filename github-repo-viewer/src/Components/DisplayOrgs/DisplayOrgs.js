@@ -25,7 +25,7 @@ const DisplayOrgs = ({searchInput, error}) => {
         }, 1000);
     }
 
-}, [searchInput]);
+  }, [searchInput]);
 
   return (
     <div className="DisplayOrgsContainer">
@@ -41,8 +41,8 @@ const DisplayOrgs = ({searchInput, error}) => {
                 {orgs && orgs.map((org) => (
                   <div class="card mb-3" style={{'max-width': '150px;'}}>
                     <div class="row g-0">
-                      <div class="col-md-4 col-sm-2 col-2 ">
-                        <img src={org.avatar_url} class="img-fluid rounded-start" alt={`${org.login} avatar`} />
+                      <div class="col-md-4 col-sm-2 col-2 d-flex align-items-center">
+                        <img src={org.avatar_url} class="img-fluid rounded-start" width='65' alt={`${org.login} avatar`} />
                       </div>
                       <div class="col-md-8 col-sm-10 col-10">
                         <div class="card-body">
@@ -69,3 +69,44 @@ const DisplayOrgs = ({searchInput, error}) => {
 }
 
 export default DisplayOrgs;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

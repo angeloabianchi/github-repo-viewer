@@ -1,14 +1,16 @@
 
 const generateURL = (group, input, page) => {
-    const baseUrl = 'https://api.github.com/users';
+    const baseUrl = 'https://api.github.com';
 
     switch (group) {
         case 'user':
-            return `${baseUrl}/${input}`;
+            return `${baseUrl}/users/${input}`;
         case 'repos':
-            return `${baseUrl}/${input}/repos?page=${page}`;
+            return `${baseUrl}/users/${input}/repos?page=${page}`;
         case 'orgs':
-            return `${baseUrl}/${input}/orgs`;
+            return `${baseUrl}/users/${input}/orgs`;
+        case 'languages':
+            return `${baseUrl}/repos/${input}/${page}/languages`;
         default:
             throw new Error(`Invalid type: ${group}`);
     }
@@ -67,7 +69,6 @@ const fetchData = async (group, input, page) => {
             const lastPageURL = extractLastPageURL(linkHeader);
             if (linkHeader) {
                 const lastPageNumber = extractLastPageNumber(lastPageURL);
-                /* console.log('linkHeader:', linkHeader); */
                 const result = await res.json();
                 return {result, lastPageNumber};
             } else {
