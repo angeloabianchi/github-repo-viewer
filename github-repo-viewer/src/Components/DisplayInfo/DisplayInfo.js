@@ -36,7 +36,7 @@ const DisplayInfo = ({searchInput, error}) => {
                     <div className='col-6 d-flex flex-column align-items-center'>
                       <p class='row-lg-3 justify-content-end name'>{data.name}</p>
                       <p class='row-lg-9'>{data.location}</p>
-                      <a href={data.html_url} target='_blank' class='row-2'>Profile</a>
+                      <a href={data.html_url} target='_blank' class='btn text-uppercase row-2'>Profile</a>
                     </div>
                     <div className='col-lg-6 col-sm-4 col'>
                       <div class='row'><img src={data.avatar_url} width='130px' alt='avatar' /></div>

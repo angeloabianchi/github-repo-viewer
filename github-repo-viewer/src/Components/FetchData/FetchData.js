@@ -49,8 +49,6 @@ const fetchData = async (group, input, page) => {
 
     const url = generateURL(group, input, page);
 
-    console.log(url)
-
     const options = {
         method: 'GET',
         headers: {

@@ -49,14 +49,14 @@ const Index = () => {
                             <DisplayOrgs searchInput={searchInput} error={error} />
                         </div>
 
-                        <div class={initialState ? 'col-lg-7 col-md-7 Components displayRepos hide' : 'col-lg-7 col-md-7 Components displayRepos show'}>
+                        <div class={initialState ? 'col-lg-11 col-md-9 Components displayRepos hide' : 'col-lg-11 col-md-11 Components displayRepos show'}>
                             <DisplayRepos searchInput={searchInput} setRepoSelected={setRepoSelected} error={error} setError={setError} setShowErrorModal={setShowErrorModal} setInitialState={setInitialState} page={page} setPage={setPage}/>
                             
                         </div>
 
-                        <div class={initialState ? 'col-lg-4 col-md-3 Components displayRight hide' : 'col-lg-4 col-md-3 Components displayRight show'}>
+                        {/* <div class={initialState ? 'col-lg-4 col-md-3 Components displayRight hide' : 'col-lg-4 col-md-3 Components displayRight show'}>
                             <DisplayRepoInfo repoSelected={repoSelected} />
-                        </div>
+                        </div> */}
 
                         <ErrorModal error={error} showErrorModal={showErrorModal} setShowErrorModal={setShowErrorModal}/>
                 

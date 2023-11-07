@@ -154,7 +154,7 @@
 
 
 @media only screen and (min-width: 577px) and (max-width: 768px) {
-    #findUser {
+/*     #findUser {
         order: 2;
     }
     
@@ -176,7 +176,7 @@
     }
     .searchTitlePage {
         font-size: 2rem;
-    }
+    } */
 }
 
 @media only screen and (max-width: 992px) {
@@ -219,9 +219,10 @@
 
 }
 
-@media only screen and (min-width: 994px) and (max-width: 1165px) {
-
-
+@media only screen and (max-width: 1020) {
+    .searchTitlePage {
+        font-size: 2rem;
+    }
 }
 
 

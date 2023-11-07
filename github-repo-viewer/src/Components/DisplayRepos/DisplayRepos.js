@@ -81,10 +81,10 @@ const DisplayRepos = ({ searchInput, setRepoSelected, error, setError, setShowEr
                     <h4 className="titlePage">{searchInput} Repos</h4>
                 )}
                 <div class='container'>
-                    <div class="row row-cols-lg-2 row-cols-md-2 row-cols-sm-1 repoList">
+                    <div class="row-lg-2 repoList">
                         {data && data.map((repo) => (
                             <div class='col'>
-                                <button onClick={() => selectRepo(repo)} class='btn btn-repo mb-2'>
+                                <div onClick={() => selectRepo(repo)} class='btn-repo mb-2'>
                                     <div class="card">
                                         <div class="card-header">
                                             {repo.name}
@@ -100,7 +100,7 @@ const DisplayRepos = ({ searchInput, setRepoSelected, error, setError, setShowEr
                                             </blockquote>
                                         </div>
                                     </div>
-                                </button>
+                                </div>
                             </div>
                         ))}
                     </div>
