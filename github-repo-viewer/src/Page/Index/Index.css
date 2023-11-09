@@ -2,10 +2,6 @@
     width: 100%;
 }
 
-.index {
-
-}
-
 .logo {
     width: 100%;
     height: 100%;
@@ -20,7 +16,6 @@
     left: 0;
     right: 0;
     margin-bottom: auto;
-    /* margin-top: auto; */
     bottom: 0;
     top: -8%;
     transition: width 500ms, height 500ms;
@@ -154,29 +149,7 @@
 
 
 @media only screen and (min-width: 577px) and (max-width: 768px) {
-/*     #findUser {
-        order: 2;
-    }
-    
-    .displayInfo {
-        order: 1;
-        margin-top: 10%;
-    }
 
-    .displayRight {
-        order: 3;
-    }
-
-    .displayRepos {
-        order: 4;
-    }
-
-    .findUser {
-        margin-bottom: 10%;
-    }
-    .searchTitlePage {
-        font-size: 2rem;
-    } */
 }
 
 @media only screen and (max-width: 992px) {

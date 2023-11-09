@@ -67,18 +67,3 @@ const DisplayInfo = ({searchInput, error}) => {
 }
 
 export default DisplayInfo;
-
-
-/* 
-
-name                         avatar_url
-location                public_repos followers
-html_url
-email
-
-bio
-
-
-updated_at                created_at
-
-*/

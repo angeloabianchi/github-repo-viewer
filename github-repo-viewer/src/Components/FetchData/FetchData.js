@@ -16,7 +16,6 @@ const generateURL = (group, input, page) => {
     }
 };
 
-
 const extractLastPageURL = (linkHeader) => {
     if (!linkHeader) {
         return null;
@@ -41,8 +40,6 @@ const extractLastPageNumber = (lastPageURL) => {
     }
     return null;
 }
-
-
 
 const fetchData = async (group, input, page) => {
     const fetch = require('node-fetch');
@@ -73,8 +70,7 @@ const fetchData = async (group, input, page) => {
                 const lastPageNumber = 1;
                 const result = await res.json();
                 return {result, lastPageNumber};
-            }
-            
+            }  
         }
     })
     .then(data => {

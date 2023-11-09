@@ -17,13 +17,8 @@ const DisplayRepoInfo = ({ repoSelected }) => {
             } catch (err) {
                 console.error(err);
             }
-            
         }, 1000);
-    
       }, [repoSelected]);
-    
-    console.log(languages)
-
     
 
   return (
@@ -51,8 +46,6 @@ const DisplayRepoInfo = ({ repoSelected }) => {
                         </div>
                     </div>
                 </div>
-
-                
             </div>
         ) : (
             <div className="DisplayInfoContainer">
@@ -60,20 +53,7 @@ const DisplayRepoInfo = ({ repoSelected }) => {
             </div>
         )}
     </>
-
-
   );
 }
 
 export default DisplayRepoInfo;
-
-
-
-/* 
-                description
-        language            languages_url
-
-        homepage            html_url
-
-
-*/

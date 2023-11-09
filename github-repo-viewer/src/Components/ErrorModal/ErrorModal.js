@@ -27,27 +27,3 @@ const ErrorModal = ({error, showErrorModal, setShowErrorModal}) => {
 }
 
 export default ErrorModal;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

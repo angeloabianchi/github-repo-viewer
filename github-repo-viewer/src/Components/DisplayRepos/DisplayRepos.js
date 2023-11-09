@@ -16,11 +16,9 @@ const DisplayRepos = ({ searchInput, setRepoSelected, error, setError, setShowEr
         setShowErrorModal(true);
     };
 
-
     const selectRepo = (repo) => {
         setRepoSelected(repo);
     }
-
 
     const nextPage = (page) => {
         if (page < maxPage) {
@@ -28,14 +26,12 @@ const DisplayRepos = ({ searchInput, setRepoSelected, error, setError, setShowEr
         }
     }
 
-
     const previousPage = (page) => {
         if (page > 1) {
             setPage(page - 1);
         }
     }
-
-    
+  
     useEffect(() => {
         setData('');
         setError(null); 
@@ -115,9 +111,7 @@ const DisplayRepos = ({ searchInput, setRepoSelected, error, setError, setShowEr
                 </div>
             </div>
             </>
-
         )}
-
     </div>
   );
 }

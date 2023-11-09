@@ -31,29 +31,24 @@ const Index = () => {
           <div class="logo"><img src={logo} className='backgroundLogo logoAnimation' alt="GitHub Repo View" /></div>
             ) : (
             <>
-
                 <div className="index bg-black">
                     <div class="logo"><img src={logo} className='backgroundLogo' alt="GitHub Repo View" /></div>
                     <div class="row layout">
                         <div class={initialState ? 'col-lg-3 col-md-5 Components displayInfo hide' : 'col-lg-3 col-md-5 Components displayInfo show'}>
                             <DisplayInfo searchInput={searchInput} error={error} />
                         </div>
-
                         <div class='col-lg-5 col-md-12 d-flex findUser'>
                             <div class='col search show'>
                                 <FindUser setSearchInput={setSearchInput} setRepoSelected={setRepoSelected} setPage={setPage}/>
                             </div>
                         </div>
-
                         <div class={initialState ? 'col-lg-3 col-md-5 Components displayRight hide' : 'col-lg-3 col-md-5 Components displayRight show'}>
                             <DisplayOrgs searchInput={searchInput} error={error} />
                         </div>
-
                         <div class={initialState ? 'col-lg-11 col-md-9 Components displayRepos hide' : 'col-lg-11 col-md-11 Components displayRepos show'}>
                             <DisplayRepos searchInput={searchInput} setRepoSelected={setRepoSelected} error={error} setError={setError} setShowErrorModal={setShowErrorModal} setInitialState={setInitialState} page={page} setPage={setPage}/>
-                            
                         </div>
-
+                        {/* DisplayRepoInfo component will be implemented soon */}
                         {/* <div class={initialState ? 'col-lg-4 col-md-3 Components displayRight hide' : 'col-lg-4 col-md-3 Components displayRight show'}>
                             <DisplayRepoInfo repoSelected={repoSelected} />
                         </div> */}
@@ -61,8 +56,7 @@ const Index = () => {
                         <ErrorModal error={error} showErrorModal={showErrorModal} setShowErrorModal={setShowErrorModal}/>
                 
                     </div>
-                </div>
-                
+                </div> 
             </>
             )}
         </div>
