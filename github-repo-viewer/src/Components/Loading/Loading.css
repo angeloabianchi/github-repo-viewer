@@ -1,23 +1,27 @@
 .LoadingContainer {
-    animation: opacity-animation 500ms ease-in-out;
+  animation: opacity-animation 500ms ease-in-out;
 }
 
 .loadingImage {
-    width: 10%;
-    background-color: transparent;
-    position: absolute;
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
-    right: 0;
-    margin-bottom: auto;
-    margin-top: auto;
-    bottom: 0;
-    top: 0;
-    animation: loading-info 500ms ease infinite;
+  width: 10%;
+  background-color: transparent;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  margin-bottom: auto;
+  margin-top: auto;
+  bottom: 0;
+  top: 0;
+  animation: loading-info 500ms ease infinite;
 }
 
 @keyframes loading-info {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
   }
+  100% {
+    transform: rotate(360deg);
+  }
+}
